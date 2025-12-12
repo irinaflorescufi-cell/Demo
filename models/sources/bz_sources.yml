@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: bronze
+    database: AVIV
+    schema: BRONZE
+
+    freshness:
+      warn_after: { count: 6, period: hour }
+      error_after: { count: 24, period: hour }
+
+    tables:
+      - name: PROPERTY_LISTINGS_RAW
+        loaded_at_field: ingested_at
+
+      - name: LEADS_CONTACTS_RAW
+        loaded_at_field: ingested_at
