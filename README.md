@@ -13,7 +13,7 @@ Once the logic was stable and validated, **part of the solution was replicated i
 
 ## Repository structure
 
-.
+```
 ├── snowflake_sql/        # Snowflake-first implementation and validation
 │   ├── 01_Initialization.sql           #  creation of the objects
 │   ├── 02_property_listings_flow.sql    #flow for property listings (DIM)
@@ -26,3 +26,4 @@ Once the logic was stable and validated, **part of the solution was replicated i
 ├── tests/                # dbt data quality & logic tests
 ├── seeds/
 └── README.md
+```
