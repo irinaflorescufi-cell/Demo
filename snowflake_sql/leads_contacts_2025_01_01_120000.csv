@@ -1,0 +1,7 @@
+contact_id|listing_id|contact_source|contact_timestamp
+C2007|L1001|organic|2025-01-01 11:55:00
+C2008|L1002|paid|2025-01-01 12:05:00
+C2009|L1004|partner|2025-01-01 12:08:00
+C2010|L1009|organic|2025-01-01 12:15:00
+C2011|L9999|organic|2025-01-01 12:20:00
+C2012|L1005|paid|2025-01-01 12:25:00
