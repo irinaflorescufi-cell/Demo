@@ -3,22 +3,14 @@
 
 ## What’s inside
 
-### Data layers
-- **Bronze (source):** raw snapshot files landed in Snowflake (`bronze.PROPERTY_LISTINGS_RAW`)
-- **Staging:** cleaned + normalized + deduplicated latest snapshot (`stg_property_listings`)
-- **Snapshot (SCD2):** historical tracking of listing attribute changes (`snap_property_listings_scd2`)
-- **Silver:** SCD2 dimension with surrogate keys and effective dates (`dim_property_listings_scd2`)
-- **Marts (Gold):** current “active” dimension for reporting (`dim_property_listings_dbt`)
+## Context & approach
 
-### Grains
-- `stg_property_listings`: 1 row per `listing_id` for the latest batch
-- `snap_property_listings_scd2`: SCD2 history per `listing_id`
-- `dim_property_listings_scd2`: SCD2 dimension rows (one per change period)
-- `dim_property_listings`: 1 current row per `listing_id`
+The goal of this case study was to design a simple but realistic analytics data platform for a real-estate marketplace (SeLoger-like use case), focusing on data modeling, data quality, and business-oriented analytics.
 
-## How to run
+### Approach
 
-### 1) Install deps
-dbt run
-dbt snapshot
-dbt test
+The core transformations and business logic were **first implemented and validated directly in Snowflake**.
+This allowed fast iteration, easy debugging, and full control over complex logic such as SCD Type 2 handling, deduplication, and business KPIs.
+
+Once the logic was stable and validated, **part of the solution was replicated in dbt** to demonstrate how the same pipeline would be structured in a production-grade analytics project: staging models, SCD2 snapshots, curated dimensions, marts, and data quality tests.
+
