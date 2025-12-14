@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: stg_property_listings
+    description: "Latest snapshot of property listings, cleaned and deduplicated by listing_id."
+    columns:
+      - name: listing_id
+        description: "Business key for a listing."
+        tests:
+          - not_null
+          - unique
+
+      - name: price
+        description: "Listing price (numeric)."
+        tests:
+          - not_null
+
+      - name: snapshot_ts
+        description: "Snapshot timestamp of the ingestion batch."
+        tests:
+          - not_null
+
+      - name: ingested_at
+        description: "Ingestion timestamp."
+        tests:
+          - not_null

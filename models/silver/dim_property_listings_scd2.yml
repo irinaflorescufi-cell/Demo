@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: dim_property_listings_scd2
+    description: "SCD2 dimension for property listings built from dbt snapshot."
+    columns:
+      - name: listing_sk
+        description: "Surrogate key (listing_id + valid_from)."
+        tests:
+          - not_null
+          - unique
+
+      - name: listing_id
+        description: "Business key for a listing."
+        tests:
+          - not_null
+
+      - name: effective_from
+        description: "SCD2 effective start timestamp."
+        tests:
+          - not_null
+
+      - name: is_current
+        description: "True for the current SCD2 record."
+        tests:
+          - not_null
